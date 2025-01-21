@@ -21,6 +21,12 @@ public class Card extends BaseEntity {
 
     private String cardType;
 
+    private int totalLimit;
+
+    private int amountUsed;
+
+    private int availableAmount;
+
     public void setCardId(Long cardId) {
         this.cardId = cardId;
     }
@@ -77,10 +83,5 @@ public class Card extends BaseEntity {
         return availableAmount;
     }
 
-    private int totalLimit;
-
-    private int amountUsed;
-
-    private int availableAmount;
 
 }

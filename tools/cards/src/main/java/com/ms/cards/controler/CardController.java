@@ -27,10 +27,15 @@ import org.springframework.web.bind.annotation.*;
 )
 @RestController
 @RequestMapping(path = "/api/v1", produces = {MediaType.APPLICATION_JSON_VALUE})
-@AllArgsConstructor
 @Validated
 public class CardController {
+
     private ICardsService iCardsService;
+
+    public CardController(ICardsService iCardsService) {
+        this.iCardsService = iCardsService;
+    }
+
 
     @Operation(
             summary = "Create Card REST API",
@@ -111,7 +116,7 @@ public class CardController {
             )
     })
     @PutMapping("/update")
-    public ResponseEntity<ResponseDto> updateCard(@Valid @RequestParam CardsDto cardsDto) {
+    public ResponseEntity<ResponseDto> updateCard(@Valid @RequestBody CardsDto cardsDto) {
         boolean isUpdated = iCardsService.updateCard(cardsDto);
         if(isUpdated) {
             return ResponseEntity

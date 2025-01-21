@@ -5,22 +5,16 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Schema(name = "Cards",
         description = "Schema to hold Card information"
 )
-@Data @AllArgsConstructor
-@Getter
-@Setter
-
+@Data
 public class CardsDto {
 
     @NotEmpty(message = "Mobile Number can not be a null or empty")
-    @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile Number must be 10 digits")
+    @Pattern(regexp="(^$|[0-9]{9})",message = "Mobile Number must be 9 digits")
     @Schema(
             description = "Mobile Number of Customer", example = "4354437687"
     )
