@@ -36,10 +36,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 
-
     @ExceptionHandler(CardAlreadyExistsException.class)
     public ResponseEntity<ErrorResponseDto> handleCardAlreadyExistsException(CardAlreadyExistsException exception,
-                                                                                                  WebRequest webRequest) {
+                                                                             WebRequest webRequest) {
 
         ErrorResponseDto errorResponseDto = new ErrorResponseDto(
                 webRequest.getDescription(false),
