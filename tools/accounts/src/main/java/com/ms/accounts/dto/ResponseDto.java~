@@ -1,0 +1,26 @@
+package com.ms.accounts.dto;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Data @AllArgsConstructor @Getter @Setter
+@Schema(
+        name = "Response",
+        description = "Schema of successful response information"
+)
+public class ResponseDto {
+
+    @Schema(
+            description = "Status code", example = "500"
+    )
+    private String statusCode;
+
+    @Schema(
+            description = "Status Message", example = "HTTP OK"
+    )
+    private String statusMsg;
+
+}
